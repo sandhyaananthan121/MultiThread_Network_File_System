@@ -1,3 +1,4 @@
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.*;
 import java.net.*;
 
@@ -31,6 +32,7 @@ public class Server {
             try (ObjectInputStream in = new ObjectInputStream(connection.getInputStream());
                  ObjectOutputStream out = new ObjectOutputStream(connection.getOutputStream())) {
 
+                ObjectInputFilters.enableObjectFilterIfUnprotected(in);
                 System.out.println("Handler for Client " + clientNum + " started.");
 
                 String command;
