@@ -35,13 +35,13 @@ public class Client {
                     // Upload the file to the server
                     sendFile(command.split(" ")[1]);
                     System.out.println("File uploaded: " + command.split(" ")[1]);
-                } else if (!command.equals("c")) {
+                } else if (!"c".equals(command)) {
                     // Send other commands to the server
                     sendCommand(command);
                     // Process the response from the server
                     processResponse();
                 }
-            } while (!command.equals("c"));
+            } while (!"c".equals(command));
         } catch (ConnectException e) {
             System.err.println("Connection refused. You need to initiate a server first.");
         } catch (UnknownHostException unknownHost) {

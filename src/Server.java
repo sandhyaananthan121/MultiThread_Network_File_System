@@ -37,7 +37,7 @@ public class Server {
                 while (true) {
                     command = (String) in.readObject();
                     System.out.println("Received command from Client " + clientNum + ": " + command);
-                    if (command.equals("c")) {
+                    if ("c".equals(command)) {
                         System.out.println("Client " + clientNum + " has ended the connection.");
                         break;
                     }
